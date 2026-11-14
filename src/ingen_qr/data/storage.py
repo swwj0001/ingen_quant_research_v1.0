@@ -35,6 +35,9 @@ class ParquetStore:
         data["available_at"] = pd.to_datetime(data["available_at"], utc=True)
         if data["available_at"].isna().any():
             raise ValueError(f"Missing available_at in {table}.")
+        for column in data.columns:
+            if pd.api.types.is_datetime64_any_dtype(data[column]):
+                data[column] = data[column].dt.as_unit("us")
         partitions = data["date"].dt.strftime("%Y-%m-01")
         for date, group in data.groupby(partitions):
             directory = self.root / table / f"partition_date={date}"
@@ -63,6 +66,7 @@ def as_of(
 ) -> pd.DataFrame:
     if table not in KEYS:
         raise ValueError("Use an explicit cohort date to query the universe table.")
+    connection.execute("SET TimeZone='UTC'")
     keys = ", ".join(f'"{key}"' for key in KEYS[table])
     extra_order = ", accn DESC" if table == "company_facts" else ""
     return connection.execute(
