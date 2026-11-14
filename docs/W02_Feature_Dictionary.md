@@ -108,3 +108,64 @@ The splitter records expanding training, a trailing 12-month validation block an
 - yfinance PriceHistory: https://ranaroussi.github.io/yfinance/reference/yfinance.price_history.html
 
 Coverage is generated from the user's database by the W2 command; no full-universe result is fabricated in this package.
+
+<!-- GENERATED COVERAGE -->
+
+## Development coverage before imputation
+
+| Feature | Mean monthly coverage |
+| --- | --- |
+| reversal_21d | 97.69% |
+| momentum_63_21d | 97.61% |
+| momentum_126_21d | 97.49% |
+| momentum_252_21d | 97.27% |
+| volatility_21d | 97.70% |
+| volatility_60d | 97.64% |
+| beta_252d | 97.36% |
+| idio_volatility_252d | 97.36% |
+| max_return_21d | 97.70% |
+| amihud_21d | 97.59% |
+| log_dollar_volume_21d | 97.69% |
+| log_market_cap | 88.26% |
+| book_to_market | 78.27% |
+| earnings_yield | 76.23% |
+| sales_to_price | 74.92% |
+| cashflow_yield | 75.49% |
+| roe | 72.59% |
+| roa | 80.11% |
+| gross_profitability | 53.63% |
+| gross_margin | 48.58% |
+| net_margin | 71.48% |
+| operating_cashflow_to_assets | 80.88% |
+| accruals | 71.22% |
+| asset_growth | 90.38% |
+| equity_growth | 80.45% |
+| sales_growth | 79.45% |
+| earnings_growth | 80.75% |
+| liabilities_to_assets | 61.31% |
+| equity_to_assets | 87.60% |
+| liabilities_to_equity | 55.05% |
+| capex_to_assets | 63.98% |
+| capex_to_sales | 56.43% |
+| free_cashflow_yield | 52.27% |
+| asset_turnover | 78.90% |
+| log_assets | 94.27% |
+| log_book_equity | 84.11% |
+| turnover_21d | 88.56% |
+| turnover_60d | 88.54% |
+| momentum_x_term | 97.27% |
+| beta_x_credit | 97.36% |
+| volatility_x_vix | 97.64% |
+| value_x_term | 78.27% |
+| size_x_vix | 88.26% |
+
+## Macro condition coverage (not counted among the 43 features)
+
+| Condition | Observed monthly fraction |
+| --- | --- |
+| risk_free_3m | 100.00% |
+| treasury_10y | 100.00% |
+| baa_yield | 100.00% |
+| vix_level | 100.00% |
+| term_spread | 100.00% |
+| credit_spread | 100.00% |
