@@ -1,0 +1,25 @@
+study_start: "2010-01-01"
+study_end: "2026-09-30"
+universe_known_through: "2026-09-07"
+smoke_tickers: [AAPL, MSFT, IBM]
+fred_series: [DGS3MO, T10Y3M, BAA10Y, VIXCLS]
+ticker_aliases:
+  BRK.B: BRK-B
+  BF.B: BF-B
+  FB: META
+cik_overrides:
+  AAPL: 320193
+  MSFT: 789019
+  IBM: 51143
+sec_tags:
+  - Assets
+  - Liabilities
+  - StockholdersEquity
+  - NetIncomeLoss
+  - Revenues
+  - SalesRevenueNet
+  - RevenueFromContractWithCustomerExcludingAssessedTax
+  - NetCashProvidedByUsedInOperatingActivities
+  - PaymentsToAcquirePropertyPlantAndEquipment
+  - CommonStockSharesOutstanding
+  - EntityCommonStockSharesOutstanding

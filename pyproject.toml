@@ -1,0 +1,32 @@
+[project]
+name = "ingen-qr"
+version = "0.1.0"
+description = "Point-in-time data pipeline for investment research"
+readme = "README.md"
+requires-python = ">=3.11.18,<3.12"
+dependencies = [
+    "curl-cffi==0.17.0",
+    "duckdb==2.0.0",
+    "exchange-calendars==4.13.2",
+    "pandas==3.1.1",
+    "pyarrow==26.0.1",
+    "python-dotenv==1.2.4",
+    "pyyaml==6.0.3",
+    "requests==2.34.2",
+    "yfinance==1.8.0",
+]
+
+[build-system]
+requires = ["uv_build==0.13.8"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "black==26.10.1",
+    "mypy==2.4.1",
+    "pandas-stubs==3.1.0.261029",
+    "pytest==9.2.0",
+    "ruff==0.17.5",
+    "types-pyyaml==6.0.12.20261113",
+    "types-requests==2.33.0.20261030",
+]

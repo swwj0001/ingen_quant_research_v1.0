@@ -1,0 +1,30 @@
+# Python environment
+.venv/
+__pycache__/
+*.py[cod]
+
+# Secrets
+.env
+.env.*
+!.env.example
+
+# Downloaded data and caches
+/data/
+
+# Development tool caches
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Notebook temporary files
+.ipynb_checkpoints/
+
+# Build files
+build/
+dist/
+*.egg-info/
+/W01_Pipeline_Batch/
+
+/W01_Pipeline_Batch.zip
