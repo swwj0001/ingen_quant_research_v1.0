@@ -45,11 +45,13 @@ def build(config: dict[str, Any], smoke: bool, refresh: bool) -> None:
     sec = Downloader(min_interval=0.5, headers={"User-Agent": agent})
     start = str(config["study_start"])
     end = str(config["study_end"])
+    market_proxy = str(config["market_proxy"])
 
     print("[1/5] Historical membership", flush=True)
     history = load_constituent_source(refresh=refresh)
     audit_membership(history).to_csv(reports / "membership_anchors.csv", index=False)
     cohorts = build_cohorts(history, start, end, str(config["universe_known_through"]))
+    cohorts = cohorts.loc[cohorts["ticker"] != market_proxy].copy()
     if smoke:
         cohorts = cohorts.loc[cohorts["ticker"].isin(config["smoke_tickers"])].copy()
     tickers = sorted(cohorts["ticker"].unique())
@@ -102,9 +104,11 @@ def build(config: dict[str, Any], smoke: bool, refresh: bool) -> None:
 
     covered_days: dict[str, set[str]] = {}
     price_report: list[dict[str, Any]] = []
-    for position, ticker in enumerate(tickers, 1):
+    price_tickers = sorted(set(tickers) | {market_proxy})
+    market_proxy_rows = 0
+    for position, ticker in enumerate(price_tickers, 1):
         provider = aliases.get(ticker, ticker)
-        print(f"[5/5] Prices {position}/{len(tickers)} {ticker}", flush=True)
+        print(f"[5/5] Prices {position}/{len(price_tickers)} {ticker}", flush=True)
         try:
             frame = load_prices(provider, market, refresh=refresh)
         except TemporaryDownloadError:
@@ -113,11 +117,19 @@ def build(config: dict[str, Any], smoke: bool, refresh: bool) -> None:
                 "and rerun after restoring access."
             ) from None
         except YFTickerMissingError as error:
+            if ticker == market_proxy:
+                raise RuntimeError(
+                    f"Market proxy {market_proxy} has no prices."
+                ) from error
             price_report.append(
                 {"ticker": ticker, "provider": provider, "status": type(error).__name__}
             )
             continue
         except ValueError as error:
+            if ticker == market_proxy:
+                raise RuntimeError(
+                    f"Invalid market proxy {market_proxy} prices."
+                ) from error
             price_report.append(
                 {"ticker": ticker, "provider": provider, "status": str(error)}
             )
@@ -125,6 +137,14 @@ def build(config: dict[str, Any], smoke: bool, refresh: bool) -> None:
         frame = frame.loc[frame["date"] <= pd.Timestamp(end)].copy()
         frame["ticker"] = ticker
         frame["provider_ticker"] = provider
+        if ticker == market_proxy:
+            if frame.empty:
+                raise RuntimeError(
+                    f"Market proxy {market_proxy} has no study-period rows."
+                )
+            store.write(frame, "prices", ticker)
+            market_proxy_rows = len(frame)
+            continue
         days = set(frame["date"].dt.strftime("%Y-%m-%d"))
         covered_days[ticker] = days & required_days
         store.write(frame, "prices", ticker)
@@ -161,6 +181,8 @@ def build(config: dict[str, Any], smoke: bool, refresh: bool) -> None:
         "status": "built_with_coverage_report",
         "requested_stocks": len(tickers),
         "stocks_with_prices": len(covered_days),
+        "market_proxy": market_proxy,
+        "market_proxy_rows": market_proxy_rows,
         "requested_CIKs": len(ciks),
         "tables": sorted(store.written),
         "cache_hits": market.cache_hits + public.cache_hits + sec.cache_hits,

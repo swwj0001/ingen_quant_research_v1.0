@@ -2,7 +2,8 @@ study_start: "2010-01-01"
 study_end: "2026-09-30"
 universe_known_through: "2026-09-07"
 smoke_tickers: [AAPL, MSFT, IBM]
-fred_series: [DGS3MO, T10Y3M, BAA10Y, VIXCLS]
+market_proxy: SPY
+fred_series: [DGS3MO, DGS10, DBAA, T10Y3M, BAA10Y, VIXCLS]
 ticker_aliases:
   BRK.B: BRK-B
   BF.B: BF-B
@@ -19,6 +20,10 @@ sec_tags:
   - Revenues
   - SalesRevenueNet
   - RevenueFromContractWithCustomerExcludingAssessedTax
+  - GrossProfit
+  - CostOfRevenue
+  - CostOfGoodsAndServicesSold
+  - CostOfGoodsSold
   - NetCashProvidedByUsedInOperatingActivities
   - PaymentsToAcquirePropertyPlantAndEquipment
   - CommonStockSharesOutstanding

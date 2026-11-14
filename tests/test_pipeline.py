@@ -251,4 +251,15 @@ def test_complete_build_offline(
     ) as connection:
         names = set(connection.execute("SHOW TABLES").df()["name"])
         assert names == {"prices", "fred", "factors", "company_facts", "universe"}
-        assert connection.execute("SELECT count(*) FROM prices").fetchone()[0] == 6
+        assert (
+            connection.execute(
+                "SELECT count(*) FROM prices WHERE ticker <> 'SPY'"
+            ).fetchone()[0]
+            == 6
+        )
+        assert (
+            connection.execute(
+                "SELECT count(*) FROM prices WHERE ticker = 'SPY'"
+            ).fetchone()[0]
+            == 2
+        )
