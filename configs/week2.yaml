@@ -1,0 +1,9 @@
+database: data/ingen_qr.duckdb
+output_directory: data/week2
+development_start: "2010-01-01"
+development_end: "2023-12-31"
+first_test_month: "2016-01-01"
+last_test_month: "2023-12-01"
+market_proxy: SPY
+financial_max_age_days: 550
+minimum_train_rows: 30

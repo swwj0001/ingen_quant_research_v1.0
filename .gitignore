@@ -28,3 +28,5 @@ dist/
 /W01_Pipeline_Batch/
 
 /W01_Pipeline_Batch.zip
+mlruns/
+.hypothesis/

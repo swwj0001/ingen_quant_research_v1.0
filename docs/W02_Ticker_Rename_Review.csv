@@ -1,0 +1,6 @@
+old_ticker,new_ticker,symbol_change_date,source_url,approval_status
+ANTM,ELV,2022-06-28,https://www.elevancehealth.com/newsroom/anthem-inc-shareholders-approve-corporate-rebranding-new-name,pending_review
+ABC,COR,2023-08-30,https://www.cencora.com/newsroom/amerisourcebergen-becomes-cencora,pending_review
+BLL,BALL,2022-05-10,https://investors.ball.com/news-presentations/press-releases/detail/82/ball-board-declares-quarterly-dividend-stock-ticker-symbol-changing-to-ball,pending_review
+ADS,BFH,2022-04-04,https://investor.breadfinancial.com/node/18676/html,pending_review
+BHGE,BKR,2019-10-18,https://www.bakerhughes.com/company/news/bhge-changes-its-name-baker-hughes-company,pending_review
