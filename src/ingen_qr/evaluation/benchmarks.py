@@ -10,13 +10,12 @@ from ingen_qr.evaluation.splitters import PurgedWalkForward, training_indices
 from ingen_qr.models.linear import OLS_FEATURES, ols_predict
 
 
-def run_benchmarks(
+def build_benchmark_sample(
     panel: pd.DataFrame,
     processed: pd.DataFrame,
     labels: pd.DataFrame,
-    config: dict[str, Any],
-    directory: Path,
-) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
+) -> tuple[pd.DataFrame, pd.DataFrame]:
+    """Return the benchmark rows and their aligned feature matrix."""
     joined = panel[["date", "ticker", "price_at_forecast", *OLS_FEATURES]].merge(
         labels, on=["date", "ticker"], validate="one_to_one"
     )
@@ -33,6 +32,17 @@ def run_benchmarks(
     )
     if len(joined) != len(matrix):
         raise ValueError("Preprocessing changed benchmark sample membership.")
+    return joined, matrix
+
+
+def run_benchmarks(
+    panel: pd.DataFrame,
+    processed: pd.DataFrame,
+    labels: pd.DataFrame,
+    config: dict[str, Any],
+    directory: Path,
+) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
+    joined, matrix = build_benchmark_sample(panel, processed, labels)
     splitter = PurgedWalkForward(
         first_test=str(config["first_test_month"]),
         last_test=str(config["last_test_month"]),

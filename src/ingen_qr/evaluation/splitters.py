@@ -1,5 +1,6 @@
 """Expanding development splits with interval purging and a sealed holdout."""
 
+import hashlib
 from collections.abc import Iterator
 from dataclasses import dataclass
 
@@ -18,6 +19,37 @@ class Fold:
     validation: IndexArray
     test: IndexArray
     refit: IndexArray
+
+
+def fold_split_sha256(meta: pd.DataFrame, fold: Fold) -> str:
+    digest = hashlib.sha256()
+    digest.update(f"{fold.test_month:%Y-%m-%d}\n".encode())
+    identities = meta[["date", "ticker"]]
+    groups = (
+        ("train", fold.train),
+        ("validation", fold.validation),
+        ("refit", fold.refit),
+        ("test", fold.test),
+    )
+    for role, indices in groups:
+        keys = identities.iloc[indices].copy()
+        keys["date"] = pd.to_datetime(keys["date"]).dt.strftime("%Y-%m-%d")
+        keys = keys.sort_values(["date", "ticker"])
+        digest.update(f"{role}:{len(indices)}\n".encode())
+        payload = keys.to_csv(index=False, header=False, lineterminator="\n")
+        digest.update(payload.encode("utf-8"))
+    return digest.hexdigest()
+
+
+def split_manifest_sha256(folds: pd.DataFrame) -> str:
+    manifest = folds[["test_month", "split_sha256"]].copy()
+    manifest["test_month"] = pd.to_datetime(manifest["test_month"]).dt.strftime(
+        "%Y-%m-%d"
+    )
+    payload = manifest.sort_values("test_month").to_csv(
+        index=False, lineterminator="\n"
+    )
+    return hashlib.sha256(payload.encode("utf-8")).hexdigest()
 
 
 def training_indices(

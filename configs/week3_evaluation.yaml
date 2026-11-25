@@ -1,0 +1,3 @@
+vix_high_threshold: 20.0
+newey_west_lags: 6
+ff12_sic_ranges: configs/week3_ff12_sic.csv
