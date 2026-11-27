@@ -1,0 +1,11 @@
+text_config: configs/week4_text.yaml
+candidates: configs/week4_thematic_universe.csv
+minimum_training_rows: 200
+thin_month_max_share: 0.20
+thin_month_minimum_stocks: 15
+short_history_sessions: 252
+short_history_max_share: 0.25
+fundamental_minimum_coverage: 0.60
+size_match_repeats: 50
+seed: 1
+shrink_prior_rows: 2000

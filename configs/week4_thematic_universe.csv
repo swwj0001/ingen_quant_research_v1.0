@@ -1,0 +1,54 @@
+ticker,issuer,category,market,security,listed_from,listed_until,listing_basis,inclusion_reason,needs_verification
+ROK,Rockwell Automation,industrial automation,NYSE,us_equity,,,first available quote,Factory control and automation,true
+EMR,Emerson Electric,industrial automation,NYSE,us_equity,,,first available quote,Process automation and controls,true
+HON,Honeywell,industrial automation,Nasdaq,us_equity,,,first available quote,Warehouse and process automation,true
+ETN,Eaton,industrial automation,NYSE,us_equity,,,first available quote,Industrial controls and electrification,true
+AME,AMETEK,motion control,NYSE,us_equity,,,first available quote,Precision motion and instruments,true
+PH,Parker-Hannifin,motion control,NYSE,us_equity,,,first available quote,Motion and industrial controls,true
+DOV,Dover,industrial automation,NYSE,us_equity,,,first available quote,Automated manufacturing equipment,true
+ITW,Illinois Tool Works,industrial automation,NYSE,us_equity,,,first available quote,Automated equipment and joining,true
+IR,Ingersoll Rand,industrial automation,NYSE,us_equity,2020-03-02,,successor issuer era,Industrial flow and control,true
+GNRC,Generac,industrial automation,NYSE,us_equity,,,first available quote,Industrial energy systems and controllers,true
+TDY,Teledyne,machine vision,NYSE,us_equity,,,first available quote,Machine vision and imaging,true
+TER,Teradyne,robotics,Nasdaq,us_equity,,,first available quote,Robotics and automated testing,true
+CGNX,Cognex,machine vision,Nasdaq,us_equity,,,first available quote,Industrial machine vision,true
+NOVT,Novanta,motion control,Nasdaq,us_equity,,,first available quote,Precision motion and vision,true
+KLIC,Kulicke and Soffa,industrial automation,Nasdaq,us_equity,,,first available quote,Semiconductor assembly automation,true
+MKSI,MKS Instruments,industrial automation,Nasdaq,us_equity,,,first available quote,Precision process control systems,true
+IPGP,IPG Photonics,industrial automation,Nasdaq,us_equity,,,first available quote,Laser manufacturing automation,true
+ZBRA,Zebra Technologies,industrial automation,Nasdaq,us_equity,,,first available quote,Automated identification and warehouse systems,true
+ISRG,Intuitive Surgical,robotics,Nasdaq,us_equity,,,first available quote,Surgical robotic systems,true
+SYK,Stryker,robotics,NYSE,us_equity,,,first available quote,Orthopaedic robotic systems,true
+IRBT,iRobot,robotics,Nasdaq,us_equity,,,first available quote,Autonomous consumer robotics,true
+AVAV,AeroVironment,robotics,Nasdaq,us_equity,,,first available quote,Uncrewed and autonomous systems,true
+SYM,Symbotic,robotics,Nasdaq,us_equity,2022-06-08,,operating company ticker era,Warehouse robotics,true
+OII,Oceaneering,robotics,NYSE,us_equity,,,first available quote,Subsea robotic systems,true
+TRMB,Trimble,industrial automation,Nasdaq,us_equity,,,first available quote,Positioning technology and machine control,true
+CAT,Caterpillar,industrial automation,NYSE,us_equity,,,first available quote,Autonomous mining equipment,true
+DE,Deere,industrial automation,NYSE,us_equity,,,first available quote,Autonomous and precision agriculture,true
+NVDA,NVIDIA,edge AI,Nasdaq,us_equity,,,first available quote,Edge inference and robotics computing,true
+AMD,Advanced Micro Devices,edge AI,Nasdaq,us_equity,,,first available quote,Embedded and adaptive AI processing,true
+QCOM,Qualcomm,edge AI,Nasdaq,us_equity,,,first available quote,Industrial and embedded edge processors,true
+NXPI,NXP Semiconductors,edge AI,Nasdaq,us_equity,,,first available quote,Industrial and automotive edge chips,true
+TXN,Texas Instruments,edge AI,Nasdaq,us_equity,,,first available quote,Industrial embedded processors and sensors,true
+ADI,Analog Devices,edge AI,Nasdaq,us_equity,,,first available quote,Edge signal processing and sensing,true
+ON,onsemi,edge AI,Nasdaq,us_equity,,,first available quote,Industrial and automotive vision sensors,true
+AMBA,Ambarella,edge AI,Nasdaq,us_equity,,,first available quote,Edge AI vision semiconductors,true
+STM,STMicroelectronics,edge AI,NYSE,us_listed_foreign_equity,,,first available quote,Industrial embedded processors and sensors,true
+ARM,Arm Holdings,edge AI,Nasdaq,us_adr,2023-09-14,,Nasdaq initial ADS trading,Edge processor architectures,true
+AI,C3.ai,AI software,NYSE,us_equity,2020-12-09,,issuer initial trading,Enterprise industrial AI applications,true
+PTC,PTC,AI software,Nasdaq,us_equity,,,first available quote,Industrial design software and connected equipment,true
+ADSK,Autodesk,AI software,Nasdaq,us_equity,,,first available quote,Manufacturing design and automation software,true
+ANSS,Ansys,AI software,Nasdaq,us_equity,,,first available quote,Engineering simulation and digital twins,true
+ABB,ABB,industrial automation,NYSE,us_adr,,2023-05-22,last active NYSE date before delisting,Robotics and industrial control,true
+FANUY,FANUC,robotics,OTC,coverage_only,,,outside modeling universe,Industrial robots and CNC,true
+6506.T,Yaskawa Electric,robotics,Tokyo,coverage_only,,,outside modeling universe,Industrial robotics and motion control,true
+6861.T,Keyence,machine vision,Tokyo,coverage_only,,,outside modeling universe,Sensing and vision,true
+6645.T,Omron,industrial automation,Tokyo,coverage_only,,,outside modeling universe,Industrial controls and robotics,true
+6273.T,SMC,motion control,Tokyo,coverage_only,,,outside modeling universe,Pneumatic motion control,true
+6268.T,Nabtesco,motion control,Tokyo,coverage_only,,,outside modeling universe,Precision reducers and motion,true
+SIE.DE,Siemens,industrial automation,Xetra,coverage_only,,,outside modeling universe,Factory automation and industrial software,true
+SU.PA,Schneider Electric,industrial automation,Paris,coverage_only,,,outside modeling universe,Industrial controls and electrification,true
+DSY.PA,Dassault Systemes,AI software,Paris,coverage_only,,,outside modeling universe,Industrial simulation and virtual twins,true
+TOM.OL,TOMRA,industrial automation,Oslo,coverage_only,,,outside modeling universe,Automated sensor-based sorting,true
+AUTO.OL,AutoStore,robotics,Oslo,coverage_only,2021-10-20,,issuer listing era,Warehouse automation and robotics,true
